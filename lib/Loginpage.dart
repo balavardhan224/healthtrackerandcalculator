@@ -13,16 +13,77 @@ class _LoginpageState extends State<Loginpage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 24,
-          vertical: 10,
+          vertical: 80,
         ),
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Homepage()));
-          },
-          child: Text(
-            'Login',
-          ),
+        child: ListView(
+          children: [
+            Row(
+              children: [
+                Container(
+                  child: Text(
+                    'Welcome',
+                    style: TextStyle(fontSize: 50, fontWeight: FontWeight.w600),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 100,
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Enter email',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    15,
+                  ),
+                ),
+                labelText: 'Email',
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              obscureText: true,
+              decoration: InputDecoration(
+                hintText: 'Enter Password',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    15,
+                  ),
+                ),
+                labelText: 'Password',
+              ),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            SizedBox(
+              height: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      15,
+                    ),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Homepage(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Login',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
