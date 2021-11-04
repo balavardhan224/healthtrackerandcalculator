@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthtrackerandcalculator/homepage.dart';
+import 'package:healthtrackerandcalculator/loginwith.dart';
+import 'package:healthtrackerandcalculator/splashscreen.dart';
 
 class Loginpage extends StatefulWidget {
   @override
@@ -12,20 +14,37 @@ class _LoginpageState extends State<Loginpage> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(
-          horizontal: 24,
-          vertical: 80,
+          horizontal: 18,
+          vertical: 10,
         ),
         child: ListView(
           children: [
             Row(
               children: [
-                Container(
-                  child: Text(
-                    'Welcome',
-                    style: TextStyle(fontSize: 50, fontWeight: FontWeight.w600),
+                IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Loginwith(),
+                      ),
+                    );
+                  },
+                  icon: Icon(
+                    Icons.arrow_back_ios,
                   ),
-                ),
+                )
               ],
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Text(
+              'Welcome',
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             SizedBox(
               height: 100,
@@ -73,7 +92,7 @@ class _LoginpageState extends State<Loginpage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Homepage(),
+                      builder: (context) => Splashscreen(),
                     ),
                   );
                 },
