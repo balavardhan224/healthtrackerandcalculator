@@ -20,7 +20,7 @@ Widget buildcontainer(BuildContext context) {
         ),
       ),
       SizedBox(
-        width: 95,
+        width: 85,
       ),
       Container(
         height: 120,
@@ -32,6 +32,46 @@ Widget buildcontainer(BuildContext context) {
             ),
           ),
           color: Colors.amber,
+        ),
+        child: InkWell(
+          onTap: () {},
+        ),
+      ),
+    ],
+  );
+}
+
+Widget buildbox(BuildContext context) {
+  return Row(
+    children: [
+      Container(
+        height: 120,
+        width: 130,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              16,
+            ),
+          ),
+          color: Colors.amberAccent,
+        ),
+        child: InkWell(
+          onTap: () {},
+        ),
+      ),
+      Container(
+        height: 120,
+        width: 130,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              16,
+            ),
+          ),
+          color: Colors.amber,
+        ),
+        child: InkWell(
+          onTap: () {},
         ),
       ),
     ],
