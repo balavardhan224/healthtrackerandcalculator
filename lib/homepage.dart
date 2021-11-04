@@ -15,7 +15,9 @@ class _HomepageState extends State<Homepage> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 50),
-        child: buildcontainer(context),
+        child: buildcontainer(
+          context,
+        ),
       ),
       drawer: Drawer(),
     );
