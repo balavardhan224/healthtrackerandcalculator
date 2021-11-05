@@ -18,8 +18,12 @@ Widget buildcontainer(BuildContext context) {
         ),
         child: InkWell(
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Splashscreenbmi()));
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Splashscreenbmi(),
+              ),
+            );
           },
         ),
       ),
