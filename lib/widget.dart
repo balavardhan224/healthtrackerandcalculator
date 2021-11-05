@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthtrackerandcalculator/bmicalculator/splash%20screen.dart';
 // import 'package:healthtrackerandcalculator/Loginpage.dart';
 
 Widget buildcontainer(BuildContext context) {
@@ -16,7 +17,10 @@ Widget buildcontainer(BuildContext context) {
           color: Colors.amber,
         ),
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Splashscreenbmi()));
+          },
         ),
       ),
       SizedBox(
