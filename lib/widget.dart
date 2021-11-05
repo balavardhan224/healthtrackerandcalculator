@@ -53,11 +53,54 @@ Widget buildbox(BuildContext context) {
               16,
             ),
           ),
-          color: Colors.amberAccent,
+          color: Colors.amber,
         ),
         child: InkWell(
           onTap: () {},
         ),
+      ),
+      SizedBox(
+        width: 80,
+      ),
+      Container(
+        height: 120,
+        width: 130,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              16,
+            ),
+          ),
+          color: Colors.amber,
+        ),
+        child: InkWell(
+          onTap: () {},
+        ),
+      ),
+    ],
+  );
+}
+
+Widget buildbox1(BuildContext context) {
+  return Row(
+    children: [
+      Container(
+        height: 120,
+        width: 130,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              16,
+            ),
+          ),
+          color: Colors.amber,
+        ),
+        child: InkWell(
+          onTap: () {},
+        ),
+      ),
+      SizedBox(
+        width: 80,
       ),
       Container(
         height: 120,
