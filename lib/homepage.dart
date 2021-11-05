@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:healthtrackerandcalculator/widget.dart';
 
@@ -17,8 +15,20 @@ class _HomepageState extends State<Homepage> {
         elevation: 0,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 50),
-        child: buildcontainer(context),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+        child: Column(
+          children: [
+            buildcontainer(context),
+            SizedBox(
+              height: 40,
+            ),
+            buildbox(context),
+            SizedBox(
+              height: 40,
+            ),
+            buildbox1(context),
+          ],
+        ),
       ),
       drawer: Drawer(),
     );
