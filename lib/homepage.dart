@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:healthtrackerandcalculator/widget.dart';
 
 class Homepage extends StatefulWidget {
@@ -11,7 +12,10 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dashboard'),
+        title: Text(
+          'Dashboard',
+          style: GoogleFonts.roboto(),
+        ),
         elevation: 0,
       ),
       body: Padding(
