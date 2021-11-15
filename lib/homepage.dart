@@ -16,22 +16,24 @@ class _HomepageState extends State<Homepage> {
           'Dashboard',
           style: GoogleFonts.roboto(),
         ),
-        elevation: 0,
+        elevation: 5,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
-        child: Column(
-          children: [
-            buildcontainer(context),
-            SizedBox(
-              height: 40,
-            ),
-            buildbox(context),
-            SizedBox(
-              height: 40,
-            ),
-            buildbox1(context),
-          ],
+        child: SafeArea(
+          child: Column(
+            children: [
+              buildcontainer(context),
+              SizedBox(
+                height: 40,
+              ),
+              buildbox(context),
+              SizedBox(
+                height: 40,
+              ),
+              buildbox1(context),
+            ],
+          ),
         ),
       ),
       drawer: Drawer(),
