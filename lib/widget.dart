@@ -9,6 +9,7 @@ Widget buildcontainer(BuildContext context) {
         height: 140,
         width: 160,
         decoration: BoxDecoration(
+          // border: Border.all(color: Colors.grey.shade400, width: 5),
           borderRadius: BorderRadius.all(
             Radius.circular(
               25,

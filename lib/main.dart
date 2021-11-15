@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:healthtrackerandcalculator/Loginpage.dart';
-import 'package:healthtrackerandcalculator/homepage.dart';
+// import 'package:healthtrackerandcalculator/Loginpage.dart';
+// import 'package:healthtrackerandcalculator/homepage.dart';
 import 'package:healthtrackerandcalculator/loginwith.dart';
 
 void main() {
