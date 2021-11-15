@@ -82,15 +82,36 @@ Widget buildbox(BuildContext context) {
         height: 140,
         width: 160,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(
-              16,
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                25,
+              ),
             ),
-          ),
-          color: Colors.amber,
-        ),
+            gradient: LinearGradient(
+              colors: [
+                Colors.red.shade500,
+                Colors.brown.shade600,
+              ],
+            )),
         child: InkWell(
           onTap: () {},
+          child: Column(
+            children: [
+              Image.asset(
+                'images/diet.png',
+                height: 90,
+                width: 70,
+              ),
+              Text(
+                'Diet Planner',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                  fontFamily: 'Roboto',
+                ),
+              )
+            ],
+          ),
         ),
       ),
       SizedBox(
@@ -131,6 +152,9 @@ Widget buildbox1(BuildContext context) {
         ),
         child: GestureDetector(
           onTap: () {},
+          child: Column(
+            children: [Image.asset('images/doctorconsultation.png')],
+          ),
         ),
       ),
       SizedBox(
