@@ -24,6 +24,7 @@ class _LoginwithState extends State<Loginwith> {
                   style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.w500,
+                    fontFamily: 'Roboto',
                   ),
                 ),
               ],
@@ -51,7 +52,7 @@ class _LoginwithState extends State<Loginwith> {
                 },
                 child: Text(
                   'Login with Email',
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),
                 ),
               ),
             ),

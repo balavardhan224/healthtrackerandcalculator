@@ -45,7 +45,8 @@ Widget buildcontainer(BuildContext context) {
                 ),
                 Text(
                   'BMI Calculator',
-                  style: TextStyle(fontSize: 18, color: Colors.white),
+                  style: TextStyle(
+                      fontSize: 18, color: Colors.white, fontFamily: 'Roboto'),
                 ),
               ],
             ),

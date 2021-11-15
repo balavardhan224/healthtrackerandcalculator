@@ -44,6 +44,7 @@ class _LoginpageState extends State<Loginpage> {
               style: TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.w500,
+                fontFamily: 'Roboto',
               ),
             ),
             SizedBox(
@@ -98,7 +99,7 @@ class _LoginpageState extends State<Loginpage> {
                 },
                 child: Text(
                   'Login',
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20, fontFamily: 'Roboto'),
                 ),
               ),
             )
