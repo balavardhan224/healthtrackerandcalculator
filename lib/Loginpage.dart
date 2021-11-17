@@ -14,7 +14,7 @@ class _LoginpageState extends State<Loginpage> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(
-          horizontal: 18,
+          horizontal: 15,
           vertical: 10,
         ),
         child: ListView(
@@ -39,12 +39,15 @@ class _LoginpageState extends State<Loginpage> {
             SizedBox(
               height: 50,
             ),
-            Text(
-              'Welcome',
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.w500,
-                fontFamily: 'Roboto',
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Welcome',
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'Roboto',
+                ),
               ),
             ),
             SizedBox(

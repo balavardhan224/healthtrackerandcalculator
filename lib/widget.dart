@@ -143,17 +143,25 @@ Widget buildbox1(BuildContext context) {
         height: 140,
         width: 160,
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.black, width: 6),
           borderRadius: BorderRadius.all(
             Radius.circular(
               25,
             ),
           ),
+          gradient: LinearGradient(
+            colors: [Colors.indigo, Colors.black],
+          ),
         ),
         child: GestureDetector(
           onTap: () {},
           child: Column(
-            children: [Image.asset('images/doctorconsultation.png')],
+            children: [
+              Image.asset(
+                'images/doctorconsultation.png',
+                height: 80,
+                width: 60,
+              )
+            ],
           ),
         ),
       ),
