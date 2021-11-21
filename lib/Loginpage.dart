@@ -9,6 +9,43 @@ class Loginpage extends StatefulWidget {
 }
 
 class _LoginpageState extends State<Loginpage> {
+  String animationtype = 'idle';
+
+  String correctpassword = 'admin';
+
+  final passwordcontroller = TextEditingController();
+  final usercontroller = TextEditingController();
+  final passwordfocusnode = FocusNode();
+  final usernamefocusnode = FocusNode();
+
+  @override
+  void initState() {
+    passwordfocusnode.addListener(() {
+      if (passwordfocusnode.hasFocus) {
+        setState(() {
+          animationtype = 'hands_up';
+        });
+      } else {
+        setState(() {
+          animationtype = 'hands_down';
+        });
+      }
+    });
+
+    usernamefocusnode.addListener(() {
+      if (passwordfocusnode.hasFocus) {
+        setState(() {
+          animationtype = 'test';
+        });
+        setState(() {
+          animationtype = 'idle';
+        });
+      }
+    });
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,9 +97,14 @@ class _LoginpageState extends State<Loginpage> {
                 child: CircleAvatar(
                   child: ClipOval(
                     child: new FlareActor(
-                      'images/teddy_test.flr',
+                      'images/Teddy.flr',
                       fit: BoxFit.contain,
-                      animation: 'idle',
+                      animation: animationtype,
+                      callback: (animation) {
+                        setState(() {
+                          animationtype = 'idle';
+                        });
+                      },
                     ),
                   ),
                 ),
@@ -72,6 +114,8 @@ class _LoginpageState extends State<Loginpage> {
               height: 20,
             ),
             TextFormField(
+              controller: usercontroller,
+              focusNode: usernamefocusnode,
               decoration: InputDecoration(
                 hintText: 'Enter email',
                 border: OutlineInputBorder(
@@ -86,6 +130,8 @@ class _LoginpageState extends State<Loginpage> {
               height: 10,
             ),
             TextFormField(
+              controller: passwordcontroller,
+              focusNode: passwordfocusnode,
               obscureText: true,
               decoration: InputDecoration(
                 hintText: 'Enter Password',
