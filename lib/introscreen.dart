@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthtrackerandcalculator/Loginpage.dart';
 import 'package:intro_views_flutter/intro_views_flutter.dart';
 
 class introscreen extends StatefulWidget {
@@ -45,6 +46,10 @@ class _introscreenState extends State<introscreen> {
           showNextButton: false,
           showBackButton: true,
           onTapSkipButton: null,
+          onTapDoneButton: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Loginpage()));
+          },
         ),
       ),
     );

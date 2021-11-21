@@ -1,3 +1,4 @@
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 //import 'package:healthtrackerandcalculator/homepage.dart';
 import 'package:healthtrackerandcalculator/splashscreen.dart';
@@ -36,7 +37,7 @@ class _LoginpageState extends State<Loginpage> {
               ],
             ),
             SizedBox(
-              height: 50,
+              height: 20,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -50,7 +51,25 @@ class _LoginpageState extends State<Loginpage> {
               ),
             ),
             SizedBox(
-              height: 100,
+              height: 20,
+            ),
+            Center(
+              child: Container(
+                height: 200,
+                width: 200,
+                child: CircleAvatar(
+                  child: ClipOval(
+                    child: new FlareActor(
+                      'images/teddy_test.flr',
+                      fit: BoxFit.contain,
+                      animation: 'idle',
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
             ),
             TextFormField(
               decoration: InputDecoration(
