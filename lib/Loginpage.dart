@@ -93,25 +93,18 @@ class _LoginpageState extends State<Loginpage> {
             Center(
               child: Container(
                 height: 200,
-                width: 200,
-                child: CircleAvatar(
-                  child: ClipOval(
-                    child: new FlareActor(
-                      'images/Teddy.flr',
-                      fit: BoxFit.contain,
-                      animation: animationtype,
-                      callback: (animation) {
-                        setState(() {
-                          animationtype = 'idle';
-                        });
-                      },
-                    ),
-                  ),
+                width: 400,
+                child: new FlareActor(
+                  'images/Teddy.flr',
+                  fit: BoxFit.contain,
+                  animation: animationtype,
+                  callback: (animation) {
+                    setState(() {
+                      animationtype = 'idle';
+                    });
+                  },
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20,
             ),
             TextFormField(
               controller: usercontroller,
