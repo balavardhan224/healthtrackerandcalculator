@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:healthtrackerandcalculator/Loginpage.dart';
+// import 'package:healthtrackerandcalculator/Loginpage.dart';
+import 'package:healthtrackerandcalculator/introscreen.dart';
 // import 'package:healthtrackerandcalculator/Loginpage.dart';
 // import 'package:healthtrackerandcalculator/homepage.dart';
 // import 'package:healthtrackerandcalculator/loginwith.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Loginpage(),
+      home: introscreen(),
     );
   }
 }
