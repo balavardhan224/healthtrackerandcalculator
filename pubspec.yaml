@@ -63,6 +63,7 @@ flutter:
     - images/bmi.png
     - images/doctorconsultation.png
     - images/diet.png
+    - images/doctorconsultation.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

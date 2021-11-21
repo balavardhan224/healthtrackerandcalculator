@@ -62,7 +62,7 @@ Widget buildcontainer(BuildContext context) {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
             Radius.circular(
-              16,
+              25,
             ),
           ),
           color: Colors.amber,
@@ -123,13 +123,22 @@ Widget buildbox(BuildContext context) {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
             Radius.circular(
-              16,
+              25,
             ),
+          ),
+          gradient: LinearGradient(
+            colors: [
+              Colors.amber,
+              Colors.deepOrange,
+            ],
           ),
           color: Colors.amber,
         ),
         child: InkWell(
           onTap: () {},
+          child: Column(
+            children: [],
+          ),
         ),
       ),
     ],
@@ -149,18 +158,21 @@ Widget buildbox1(BuildContext context) {
             ),
           ),
           gradient: LinearGradient(
-            colors: [Colors.indigo, Colors.black],
+            colors: [
+              Colors.amberAccent.shade700,
+              Colors.amber.shade600,
+            ],
           ),
         ),
         child: GestureDetector(
           onTap: () {},
           child: Column(
             children: [
-              Image.asset(
-                'images/doctorconsultation.png',
-                height: 80,
-                width: 60,
-              )
+              // Image.asset(
+              //   'images/doctorconsultation.jpg',
+              //   height: 100,
+              //   width: 70,
+              // )
             ],
           ),
         ),
@@ -174,13 +186,22 @@ Widget buildbox1(BuildContext context) {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
             Radius.circular(
-              16,
+              25,
             ),
+          ),
+          gradient: LinearGradient(
+            colors: [
+              Colors.green,
+              Colors.lightGreenAccent,
+            ],
           ),
           color: Colors.amber,
         ),
         child: InkWell(
           onTap: () {},
+          child: Column(
+            children: [],
+          ),
         ),
       ),
     ],
