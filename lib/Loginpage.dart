@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healthtrackerandcalculator/homepage.dart';
-import 'package:healthtrackerandcalculator/loginwith.dart';
+//import 'package:healthtrackerandcalculator/homepage.dart';
 import 'package:healthtrackerandcalculator/splashscreen.dart';
 
 class Loginpage extends StatefulWidget {
@@ -21,19 +20,19 @@ class _LoginpageState extends State<Loginpage> {
           children: [
             Row(
               children: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Loginwith(),
-                      ),
-                    );
-                  },
-                  icon: Icon(
-                    Icons.arrow_back_ios,
-                  ),
-                )
+                // IconButton(
+                //   onPressed: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //         builder: (context) => Loginwith(),
+                //       ),
+                //     );
+                //   },
+                //   icon: Icon(
+                //     Icons.arrow_back_ios,
+                //   ),
+                // )
               ],
             ),
             SizedBox(
