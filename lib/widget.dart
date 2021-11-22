@@ -15,6 +15,14 @@ Widget buildcontainer(BuildContext context) {
               25,
             ),
           ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.7),
+              blurRadius: 10,
+              offset: Offset(0, 3),
+              spreadRadius: 5,
+            )
+          ],
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -67,10 +75,11 @@ Widget buildcontainer(BuildContext context) {
           ),
           boxShadow: [
             BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 5,
-                blurRadius: 7,
-                offset: Offset(0, 3)),
+              color: Colors.grey.withOpacity(0.6),
+              spreadRadius: 5,
+              blurRadius: 10,
+              offset: Offset(0, 3),
+            ),
           ],
           color: Colors.amber,
         ),
@@ -94,6 +103,14 @@ Widget buildbox(BuildContext context) {
                 25,
               ),
             ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.7),
+                blurRadius: 10,
+                offset: Offset(0, 3),
+                spreadRadius: 5,
+              ),
+            ],
             gradient: LinearGradient(
               colors: [
                 Colors.red.shade500,
@@ -133,6 +150,14 @@ Widget buildbox(BuildContext context) {
               25,
             ),
           ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.7),
+              blurRadius: 10,
+              offset: Offset(0, 3),
+              spreadRadius: 5,
+            ),
+          ],
           gradient: LinearGradient(
             colors: [
               Colors.amber,
@@ -164,6 +189,14 @@ Widget buildbox1(BuildContext context) {
               25,
             ),
           ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.7),
+              blurRadius: 10,
+              offset: Offset(0, 3),
+              spreadRadius: 5,
+            ),
+          ],
           gradient: LinearGradient(
             colors: [
               Colors.amberAccent.shade700,
@@ -196,6 +229,14 @@ Widget buildbox1(BuildContext context) {
               25,
             ),
           ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.7),
+              blurRadius: 10,
+              offset: Offset(0, 3),
+              spreadRadius: 5,
+            ),
+          ],
           gradient: LinearGradient(
             colors: [
               Colors.green,
