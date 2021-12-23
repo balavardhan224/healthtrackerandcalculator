@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthtrackerandcalculator/Loginpage.dart';
 import 'package:intro_views_flutter/intro_views_flutter.dart';
+import 'package:lottie/lottie.dart';
 
 class introscreen extends StatefulWidget {
   introscreen({Key? key}) : super(key: key);
@@ -26,10 +27,8 @@ class _introscreenState extends State<introscreen> {
     ),
     PageViewModel(
       pageColor: Colors.blue,
-      mainImage: Image.asset(
-        'images/doctorconsultation.png',
-        height: 10,
-        width: 10,
+      mainImage: LottieBuilder.asset(
+        'images/doctor.json',
       ),
       iconImageAssetPath: 'images/doctorconsultation.png',
       body: Text('Diet planner'),

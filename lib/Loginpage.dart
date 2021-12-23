@@ -35,7 +35,7 @@ class _LoginpageState extends State<Loginpage> {
     usernamefocusnode.addListener(() {
       if (passwordfocusnode.hasFocus) {
         setState(() {
-          animationtype = 'test';
+          animationtype = 'Check';
         });
         setState(() {
           animationtype = 'idle';
@@ -49,6 +49,8 @@ class _LoginpageState extends State<Loginpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFD6E2EA),
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 15,
@@ -106,63 +108,87 @@ class _LoginpageState extends State<Loginpage> {
                 ),
               ),
             ),
-            TextFormField(
-              controller: usercontroller,
-              focusNode: usernamefocusnode,
-              decoration: InputDecoration(
-                hintText: 'Enter email',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(
-                    15,
+            Stack(
+              children: [
+                Container(
+                  height: 290,
+                  width: 400,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: TextFormField(
+                          controller: usercontroller,
+                          focusNode: usernamefocusnode,
+                          decoration: InputDecoration(
+                            hintText: 'Enter email',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(
+                                15,
+                              ),
+                            ),
+                            labelText: 'Email',
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      SizedBox(
+                        width: 340,
+                        child: TextFormField(
+                          controller: passwordcontroller,
+                          focusNode: passwordfocusnode,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            hintText: 'Enter Password',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(
+                                15,
+                              ),
+                            ),
+                            labelText: 'Password',
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      SizedBox(
+                        height: 50,
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                15,
+                              ),
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Splashscreen(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            'Login',
+                            style:
+                                TextStyle(fontSize: 20, fontFamily: 'Roboto'),
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                 ),
-                labelText: 'Email',
-              ),
+              ],
             ),
-            SizedBox(
-              height: 10,
-            ),
-            TextFormField(
-              controller: passwordcontroller,
-              focusNode: passwordfocusnode,
-              obscureText: true,
-              decoration: InputDecoration(
-                hintText: 'Enter Password',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(
-                    15,
-                  ),
-                ),
-                labelText: 'Password',
-              ),
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            SizedBox(
-              height: 50,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      15,
-                    ),
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Splashscreen(),
-                    ),
-                  );
-                },
-                child: Text(
-                  'Login',
-                  style: TextStyle(fontSize: 20, fontFamily: 'Roboto'),
-                ),
-              ),
-            )
           ],
         ),
       ),
