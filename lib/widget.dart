@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:healthtrackerandcalculator/bmicalculator/splash%20screen.dart';
 import 'package:lottie/lottie.dart';
@@ -114,8 +116,8 @@ Widget buildbox(BuildContext context) {
             ],
             gradient: LinearGradient(
               colors: [
-                Colors.red.shade500,
-                Colors.brown.shade600,
+                Colors.red.shade400,
+                Colors.redAccent.shade700,
               ],
             )),
         child: InkWell(
@@ -167,10 +169,20 @@ Widget buildbox(BuildContext context) {
           ),
           color: Colors.amber,
         ),
-        child: InkWell(
+        child: GestureDetector(
           onTap: () {},
           child: Column(
-            children: [],
+            children: [
+              LottieBuilder.asset(
+                'images/weight.json',
+                height: 80,
+                width: 100,
+              ),
+              Text(
+                'Diet planner',
+                style: TextStyle(fontSize: 16, color: Colors.white),
+              )
+            ],
           ),
         ),
       ),
