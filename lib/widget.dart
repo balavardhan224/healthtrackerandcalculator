@@ -215,6 +215,8 @@ Widget buildbox1(BuildContext context) {
               ),
               Text(
                 'Doctor consultation',
+                style: TextStyle(
+                    fontSize: 16, color: Colors.white, fontFamily: 'Roboto'),
               )
             ],
           ),
