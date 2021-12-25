@@ -173,12 +173,16 @@ Widget buildbox(BuildContext context) {
             children: [
               LottieBuilder.asset(
                 'images/weight.json',
-                height: 80,
+                height: 90,
                 width: 100,
               ),
+              SizedBox(
+                height: 10,
+              ),
               Text(
-                'Diet planner',
-                style: TextStyle(fontSize: 16, color: Colors.white),
+                'Weight Tracker',
+                style: TextStyle(
+                    fontSize: 18, color: Colors.white, fontFamily: 'Roboto'),
               )
             ],
           ),
@@ -210,8 +214,8 @@ Widget buildbox1(BuildContext context) {
           ],
           gradient: LinearGradient(
             colors: [
+              Colors.amber.shade400,
               Colors.amberAccent.shade700,
-              Colors.amber.shade600,
             ],
           ),
         ),
