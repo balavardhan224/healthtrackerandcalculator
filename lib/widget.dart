@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:healthtrackerandcalculator/bmicalculator/splash%20screen.dart';
 import 'package:lottie/lottie.dart';
@@ -163,8 +161,8 @@ Widget buildbox(BuildContext context) {
           ],
           gradient: LinearGradient(
             colors: [
-              Colors.amber,
-              Colors.deepOrange,
+              Colors.orange.shade300,
+              Colors.deepOrange.shade400,
             ],
           ),
           color: Colors.amber,
