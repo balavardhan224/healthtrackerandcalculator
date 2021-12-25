@@ -72,6 +72,7 @@ flutter:
     - images/teddy_login_screen.riv
     - images/Teddy.flr
     - images/doctor.json
+    - images/doctor consultation.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

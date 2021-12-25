@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthtrackerandcalculator/bmicalculator/splash%20screen.dart';
+import 'package:lottie/lottie.dart';
 // import 'package:healthtrackerandcalculator/Loginpage.dart';
 
 Widget buildcontainer(BuildContext context) {
@@ -208,11 +209,13 @@ Widget buildbox1(BuildContext context) {
           onTap: () {},
           child: Column(
             children: [
-              // Image.asset(
-              //   'images/doctorconsultation.jpg',
-              //   height: 100,
-              //   width: 70,
-              // )
+              LottieBuilder.asset(
+                'images/doctor consultation.json',
+                height: 110,
+              ),
+              Text(
+                'Doctor consultation',
+              )
             ],
           ),
         ),
