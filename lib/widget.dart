@@ -86,6 +86,14 @@ Widget buildcontainer(BuildContext context) {
         ),
         child: InkWell(
           onTap: () {},
+          child: Column(
+            children: [
+              LottieBuilder.asset(
+                'images/graph.json',
+                height: 100,
+              )
+            ],
+          ),
         ),
       ),
     ],
@@ -173,7 +181,7 @@ Widget buildbox(BuildContext context) {
             children: [
               LottieBuilder.asset(
                 'images/weight.json',
-                height: 90,
+                height: 100,
                 width: 100,
               ),
               SizedBox(
@@ -226,6 +234,7 @@ Widget buildbox1(BuildContext context) {
               LottieBuilder.asset(
                 'images/doctor consultation.json',
                 height: 110,
+                width: 100,
               ),
               Text(
                 'Doctor consultation',
@@ -258,8 +267,8 @@ Widget buildbox1(BuildContext context) {
           ],
           gradient: LinearGradient(
             colors: [
-              Colors.green,
-              Colors.lightGreenAccent,
+              Colors.lightGreen,
+              Colors.lightBlueAccent.shade700,
             ],
           ),
           color: Colors.amber,
@@ -267,7 +276,17 @@ Widget buildbox1(BuildContext context) {
         child: InkWell(
           onTap: () {},
           child: Column(
-            children: [],
+            children: [
+              LottieBuilder.asset(
+                'images/Fitness.json',
+                height: 110,
+              ),
+              Text(
+                'Fitness',
+                style: TextStyle(
+                    fontSize: 18, color: Colors.white, fontFamily: 'Roboto'),
+              )
+            ],
           ),
         ),
       ),
