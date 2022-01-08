@@ -37,12 +37,12 @@ Widget buildcontainer(BuildContext context) {
         ),
         child: InkWell(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Splashscreenbmi(),
-              ),
-            );
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (context) => Splashscreenbmi(),
+            //   ),
+            // );
           },
           child: Align(
             child: Column(
@@ -175,7 +175,7 @@ Widget buildbox(BuildContext context) {
           ),
           color: Colors.amber,
         ),
-        child: GestureDetector(
+        child: InkWell(
           onTap: () {},
           child: Column(
             children: [
@@ -227,7 +227,7 @@ Widget buildbox1(BuildContext context) {
             ],
           ),
         ),
-        child: GestureDetector(
+        child: InkWell(
           onTap: () {},
           child: Column(
             children: [
