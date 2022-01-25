@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:healthtrackerandcalculator/bmicalculator/splash%20screen.dart';
 import 'package:lottie/lottie.dart';
 // import 'package:healthtrackerandcalculator/Loginpage.dart';
 
@@ -7,8 +6,8 @@ Widget buildcontainer(BuildContext context) {
   return Row(
     children: [
       Container(
-        height: 140,
-        width: 160,
+        height: 150,
+        width: 170,
         decoration: BoxDecoration(
           // border: Border.all(color: Colors.grey.shade400, width: 5),
           borderRadius: BorderRadius.all(
@@ -66,8 +65,8 @@ Widget buildcontainer(BuildContext context) {
         width: 30,
       ),
       Container(
-        height: 140,
-        width: 160,
+        height: 150,
+        width: 170,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
             Radius.circular(
@@ -104,8 +103,8 @@ Widget buildbox(BuildContext context) {
   return Row(
     children: [
       Container(
-        height: 140,
-        width: 160,
+        height: 150,
+        width: 170,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(
               Radius.circular(
@@ -151,8 +150,8 @@ Widget buildbox(BuildContext context) {
         width: 30,
       ),
       Container(
-        height: 140,
-        width: 160,
+        height: 150,
+        width: 170,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
             Radius.circular(
@@ -204,8 +203,8 @@ Widget buildbox1(BuildContext context) {
   return Row(
     children: [
       Container(
-        height: 140,
-        width: 160,
+        height: 150,
+        width: 170,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
             Radius.circular(
@@ -249,8 +248,8 @@ Widget buildbox1(BuildContext context) {
         width: 30,
       ),
       Container(
-        height: 140,
-        width: 160,
+        height: 150,
+        width: 170,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
             Radius.circular(

@@ -20,7 +20,7 @@ class _DashboardState extends State<Dashboard> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
           child: SafeArea(
             child: Column(
               children: [
