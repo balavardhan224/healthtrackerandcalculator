@@ -18,21 +18,23 @@ class _DashboardState extends State<Dashboard> {
         ),
         elevation: 5,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
-        child: SafeArea(
-          child: Column(
-            children: [
-              buildcontainer(context),
-              SizedBox(
-                height: 40,
-              ),
-              buildbox(context),
-              SizedBox(
-                height: 40,
-              ),
-              buildbox1(context),
-            ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+          child: SafeArea(
+            child: Column(
+              children: [
+                buildcontainer(context),
+                SizedBox(
+                  height: 40,
+                ),
+                buildbox(context),
+                SizedBox(
+                  height: 40,
+                ),
+                buildbox1(context),
+              ],
+            ),
           ),
         ),
       ),
