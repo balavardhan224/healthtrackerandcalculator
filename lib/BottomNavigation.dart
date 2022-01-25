@@ -1,3 +1,4 @@
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:healthtrackerandcalculator/Booking.dart';
 import 'package:healthtrackerandcalculator/Dashboard.dart';
@@ -24,41 +25,46 @@ class _BottompageState extends State<Bottompage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.blue,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: currentIndex,
-        onTap: (index) => setState(() {
-          currentIndex = index;
-        }),
+      bottomNavigationBar: BottomNavyBar(
+        backgroundColor: Colors.white70,
+        selectedIndex: currentIndex,
         items: [
-          BottomNavigationBarItem(
+          BottomNavyBarItem(
             icon: Icon(
               Icons.home,
             ),
-            label: 'Home',
-            backgroundColor: Colors.black,
+            activeColor: Colors.indigo,
+            inactiveColor: Colors.grey,
+            title: Text('Home'),
           ),
-          BottomNavigationBarItem(
+          BottomNavyBarItem(
             icon: Icon(
               Icons.event_note_sharp,
             ),
-            label: 'Booking',
-            backgroundColor: Colors.amber,
+            activeColor: Colors.indigo,
+            inactiveColor: Colors.grey,
+            title: Text('Booking'),
           ),
-          BottomNavigationBarItem(
+          BottomNavyBarItem(
             icon: Icon(Icons.health_and_safety),
-            label: 'Safety',
-            backgroundColor: Colors.brown,
+            title: Text('Safety'),
+            activeColor: Colors.indigo,
+            inactiveColor: Colors.grey,
           ),
-          BottomNavigationBarItem(
+          BottomNavyBarItem(
             icon: Icon(
               Icons.person_rounded,
             ),
-            label: 'Profile',
-            backgroundColor: Colors.deepOrange,
+            title: Text('Profile'),
+            activeColor: Colors.indigo,
+            inactiveColor: Colors.grey,
           ),
         ],
+        onItemSelected: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
       ),
     );
   }
