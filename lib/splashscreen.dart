@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:healthtrackerandcalculator/homepage.dart';
+import 'package:healthtrackerandcalculator/BottomNavigation.dart';
+import 'package:healthtrackerandcalculator/Dashboard.dart';
 
 // import 'InputPage.dart';
 
@@ -19,7 +20,7 @@ class _SplashscreenState extends State<Splashscreen> {
     Timer(Duration(seconds: 3), () {
       Navigator.of(context).pop();
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Homepage()));
+          context, MaterialPageRoute(builder: (context) => Bottompage()));
     });
   }
 

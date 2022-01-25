@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:healthtrackerandcalculator/widget.dart';
 
-class Homepage extends StatefulWidget {
+class Dashboard extends StatefulWidget {
   @override
-  _HomepageState createState() => _HomepageState();
+  _DashboardState createState() => _DashboardState();
 }
 
-class _HomepageState extends State<Homepage> {
+class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
