@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:healthtrackerandcalculator/Doctor_consultation/Doctor_list.dart';
 import 'package:lottie/lottie.dart';
 // import 'package:healthtrackerandcalculator/Loginpage.dart';
 
 Widget buildcontainer(BuildContext context) {
   return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       Container(
         height: 150,
@@ -61,9 +63,6 @@ Widget buildcontainer(BuildContext context) {
           ),
         ),
       ),
-      SizedBox(
-        width: 30,
-      ),
       Container(
         height: 150,
         width: 170,
@@ -101,6 +100,7 @@ Widget buildcontainer(BuildContext context) {
 
 Widget buildbox(BuildContext context) {
   return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       Container(
         height: 150,
@@ -145,9 +145,6 @@ Widget buildbox(BuildContext context) {
             ],
           ),
         ),
-      ),
-      SizedBox(
-        width: 30,
       ),
       Container(
         height: 150,
@@ -201,6 +198,7 @@ Widget buildbox(BuildContext context) {
 
 Widget buildbox1(BuildContext context) {
   return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       Container(
         height: 150,
@@ -227,7 +225,14 @@ Widget buildbox1(BuildContext context) {
           ),
         ),
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Doctor_list(),
+                ),
+                (route) => false);
+          },
           child: Column(
             children: [
               LottieBuilder.asset(
@@ -243,9 +248,6 @@ Widget buildbox1(BuildContext context) {
             ],
           ),
         ),
-      ),
-      SizedBox(
-        width: 30,
       ),
       Container(
         height: 150,

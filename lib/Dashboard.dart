@@ -12,6 +12,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.indigo.shade500,
         title: Text(
           'Dashboard',
           style: GoogleFonts.roboto(),
@@ -20,10 +21,13 @@ class _DashboardState extends State<Dashboard> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+          padding: const EdgeInsets.all(8.0),
           child: SafeArea(
             child: Column(
               children: [
+                SizedBox(
+                  height: 60,
+                ),
                 buildcontainer(context),
                 SizedBox(
                   height: 40,

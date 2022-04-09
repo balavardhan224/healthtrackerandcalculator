@@ -26,6 +26,7 @@ class _BottompageState extends State<Bottompage> {
     return Scaffold(
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavyBar(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         backgroundColor: Colors.white70,
         selectedIndex: currentIndex,
         items: [
