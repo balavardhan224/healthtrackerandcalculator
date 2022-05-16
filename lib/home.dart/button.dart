@@ -76,7 +76,7 @@ class SigninState extends State<Signin> {
                             );
                           },
                           child: Text(
-                            'Sign in as Customer',
+                            'Sign in as User',
                             style: TextStyle(
                               fontFamily: 'Montserrat',
                               fontSize: 20,
@@ -114,7 +114,7 @@ class SigninState extends State<Signin> {
                             );
                           },
                           child: Text(
-                            'Sign in as Chef',
+                            'Sign in as Doctor',
                             style: TextStyle(
                               fontFamily: 'Montserrat',
                               fontWeight: FontWeight.w600,

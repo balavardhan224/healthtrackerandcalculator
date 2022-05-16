@@ -49,15 +49,15 @@ class _OTPScreenState extends State<OTPScreen> {
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
-  Future<void> checkRole() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    owner = (pref.getBool('chefRole') ?? false);
-  }
+  // Future<void> checkRole() async {
+  //   SharedPreferences pref = await SharedPreferences.getInstance();
+  //   owner = (pref.getBool('chefRole') ?? false);
+  // }
 
   _phoneVerified() async {
     if (owner) {
       await FirebaseFirestore.instance
-          .collection("chefs")
+          .collection("doctors")
           .doc(FirebaseAuth.instance.currentUser!.uid)
           .get()
           .then(
@@ -70,7 +70,7 @@ class _OTPScreenState extends State<OTPScreen> {
                 ),
                 ((route) => false));
           } else {
-            FirebaseFirestore.instance.collection("chefs").doc(
+            FirebaseFirestore.instance.collection("doctors").doc(
                   FirebaseAuth.instance.currentUser!.uid,
                 );
             Navigator.pushAndRemoveUntil(
@@ -182,7 +182,7 @@ class _OTPScreenState extends State<OTPScreen> {
   @override
   void initState() {
     super.initState();
-    checkRole();
+    // checkRole();
     _verifyPhone(widget.phone);
     log(widget.phone!);
   }

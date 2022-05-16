@@ -41,9 +41,9 @@ class _LoginScreenState extends State<LoginScreen> {
   void fetchRole() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     if (widget.isowner) {
-      await pref.setBool('chefRole', true);
+      await pref.setBool('doctorRole', true);
     } else {
-      await pref.setBool('chefRole', false);
+      await pref.setBool('userRole', false);
     }
   }
 
@@ -97,9 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              widget.isowner
-                                  ? "Find your dream jobs with\n chef connect india"
-                                  : "Hire a Chef",
+                              widget.isowner ? "" : "",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: 'Montserrat',
@@ -144,9 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 8,
                             ),
                             Text(
-                              widget.isowner
-                                  ? ""
-                                  : "One Stop Solution for all Your Culinary Needs",
+                              widget.isowner ? "" : "",
                               style: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontSize: 15,
