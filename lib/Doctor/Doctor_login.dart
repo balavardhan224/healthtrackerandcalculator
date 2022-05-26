@@ -12,14 +12,14 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 // import 'package:pin_code_fields/pin_code_fields.dart';
 enum MobileVerificationState { SHOW_MOBILE_FORM_STATE, SHOW_OTP_FORMS_STATE }
 
-class chef_login extends StatefulWidget {
-  chef_login({Key? key}) : super(key: key);
+class doctor_login extends StatefulWidget {
+  doctor_login({Key? key}) : super(key: key);
 
   @override
-  State<chef_login> createState() => _chef_loginState();
+  State<doctor_login> createState() => _doctor_loginState();
 }
 
-class _chef_loginState extends State<chef_login> {
+class _doctor_loginState extends State<doctor_login> {
   MobileVerificationState currentState =
       MobileVerificationState.SHOW_MOBILE_FORM_STATE;
 
@@ -99,8 +99,16 @@ class _chef_loginState extends State<chef_login> {
       setState(() {
         isLoading = false;
       });
-      _scaffoldKey.currentState
-          ?.showSnackBar(SnackBar(content: Text("${e.message}")));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("${e.message}"),
+        ),
+      );
+      // _scaffoldKey.currentState.showsnackbar(
+      //   SnackBar(
+      //     content: Text("${e.message}"),
+      //   ),
+      // );
     }
   }
 
@@ -139,8 +147,8 @@ class _chef_loginState extends State<chef_login> {
           height: 16,
         ),
         Center(
-          child: FlatButton(
-            color: Colors.blueAccent,
+          child: TextButton(
+            // color: Colors.blueAccent,
             onPressed: () async {
               check();
               phonealert();
@@ -156,7 +164,7 @@ class _chef_loginState extends State<chef_login> {
                     setState(() {
                       isLoading = false;
                     });
-                    _scaffoldKey.currentState?.showBottomSheet(
+                    scaffoldKey.currentState?.showBottomSheet(
                         (context) => Text("${verificationFailed.message}"));
                   },
                   codeSent: (verificationId, resendingToken) async {
@@ -204,8 +212,8 @@ class _chef_loginState extends State<chef_login> {
         SizedBox(
           height: 16,
         ),
-        FlatButton(
-            color: Colors.blueAccent,
+        TextButton(
+            // color: Colors.blueAccent,
             onPressed: () {
               PhoneAuthCredential phoneAuthCredential =
                   PhoneAuthProvider.credential(
@@ -226,7 +234,7 @@ class _chef_loginState extends State<chef_login> {
     );
   }
 
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -335,7 +343,7 @@ class _chef_loginState extends State<chef_login> {
                                           setState(() {
                                             isLoading = false;
                                           });
-                                          _scaffoldKey.currentState
+                                          scaffoldKey.currentState
                                               ?.showBottomSheet((context) => Text(
                                                   "${verificationFailed.message}"));
                                         },

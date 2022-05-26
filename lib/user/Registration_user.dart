@@ -4,11 +4,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:healthtrackerandcalculator/BottomNavigation.dart';
 import 'package:healthtrackerandcalculator/Dashboard.dart';
 // import 'package:chef_connect_india/Helper/models/user.dart';
 import 'package:healthtrackerandcalculator/Helper/models/user.dart';
 // import 'package:chef_connect_india/Main%20Screen/select_mode.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Registration_user extends StatefulWidget {
@@ -45,7 +47,7 @@ class _Registration_userState extends State<Registration_user> {
         child: Stack(
           children: [
             Image.asset(
-              "assets/CCI.jpg",
+              "images/1.jpg",
               fit: BoxFit.cover,
               height: double.infinity,
               width: double.infinity,
@@ -93,9 +95,12 @@ class _Registration_userState extends State<Registration_user> {
                                 height: 5,
                               ),
                               CircleAvatar(
-                                backgroundColor: Color(0xFF092349),
+                                backgroundColor: Colors.white70,
                                 radius: 80,
-                                child: Image.asset('assets/CCI1.png'),
+                                child: LottieBuilder.asset(
+                                  'images/doctor.json',
+                                  height: 143.6,
+                                ),
                               ),
                               SizedBox(
                                 height: 20,
@@ -120,7 +125,7 @@ class _Registration_userState extends State<Registration_user> {
                                 },
                                 textInputAction: TextInputAction.next,
                                 decoration: InputDecoration(
-                                  fillColor: Colors.white,
+                                  fillColor: Colors.white70,
                                   hintText: 'First Name',
                                   hintStyle: TextStyle(
                                       color: Colors.black, fontSize: 15),
@@ -156,22 +161,21 @@ class _Registration_userState extends State<Registration_user> {
                                 autofocus: false,
                                 controller: lastNameEditingController,
                                 keyboardType: TextInputType.name,
-                                // validator: (value) {
-                                //   if (value!.isEmpty ||
-                                //       RegExp(r'^[a-z A-Z]+$')
-                                //           .hasMatch(value)) {
-                                //     //allow upper and lower case alphabets and space
-                                //     return "Enter Correct Last Name";
-                                //   } else {
-                                //     return null;
-                                //   }
-                                // },
+                                validator: (value) {
+                                  if (value!.isEmpty ||
+                                      RegExp(r'^[a-z A-Z]+$').hasMatch(value)) {
+                                    //allow upper and lower case alphabets and space
+                                    return "Enter Correct Last Name";
+                                  } else {
+                                    return null;
+                                  }
+                                },
                                 onSaved: (value) {
                                   lastNameEditingController.text = value!;
                                 },
                                 textInputAction: TextInputAction.next,
                                 decoration: InputDecoration(
-                                  fillColor: Colors.white,
+                                  fillColor: Colors.white70,
                                   hintText: 'Last Name',
                                   hintStyle: TextStyle(
                                       color: Colors.black, fontSize: 15),
@@ -221,7 +225,7 @@ class _Registration_userState extends State<Registration_user> {
                                 },
                                 textInputAction: TextInputAction.next,
                                 decoration: InputDecoration(
-                                  fillColor: Colors.white,
+                                  fillColor: Colors.white70,
                                   hintText: 'Email',
                                   hintStyle: TextStyle(
                                       color: Colors.black, fontSize: 15),
@@ -361,7 +365,7 @@ class _Registration_userState extends State<Registration_user> {
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
-                                    primary: Colors.white,
+                                    primary: Colors.white70,
                                     side: BorderSide(
                                       color: Colors.white70,
                                       width: 2,
@@ -435,7 +439,7 @@ class _Registration_userState extends State<Registration_user> {
       prefs.setString('uid', user.uid);
       Navigator.pushAndRemoveUntil(
           (context),
-          MaterialPageRoute(builder: (context) => Dashboard()),
+          MaterialPageRoute(builder: (context) => Bottompage()),
           (route) => false);
     });
     Fluttertoast.showToast(msg: "Account created successfully :) ");

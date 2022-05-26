@@ -41,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void fetchRole() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     if (widget.isowner) {
-      await pref.setBool('doctorRole', true);
+      await pref.setBool('userRole', true);
     } else {
       await pref.setBool('userRole', false);
     }
@@ -142,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 8,
                             ),
                             Text(
-                              widget.isowner ? "" : "",
+                              widget.isowner ? "" : "DOCTOR",
                               style: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontSize: 15,

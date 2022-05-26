@@ -46,8 +46,8 @@ class _introscreenState extends State<introscreen> {
           showBackButton: true,
           onTapSkipButton: null,
           onTapDoneButton: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Loginpage()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => introscreen()));
           },
         ),
       ),

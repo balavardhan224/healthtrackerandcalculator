@@ -6,7 +6,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:healthtrackerandcalculator/BottomNavigation.dart';
 import 'package:healthtrackerandcalculator/Dashboard.dart';
+import 'package:healthtrackerandcalculator/Doctor/Doctor_registration_1.dart';
+import 'package:healthtrackerandcalculator/Doctor/doctor%20page.dart';
 import 'package:healthtrackerandcalculator/Loginpage.dart';
 import 'package:healthtrackerandcalculator/home.dart/button.dart';
 import 'package:healthtrackerandcalculator/splashscreen.dart';
@@ -24,7 +27,7 @@ Future initialization(BuildContext? context) async {
   await Future.delayed(Duration(seconds: 2));
 }
 
-bool chef = false;
+bool doctor = false;
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -41,7 +44,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> checkRole() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    chef = (pref.getBool('chefRole') ?? true);
+    doctor = (pref.getBool('doctorRole') ?? true);
   }
 
   Widget build(BuildContext context) {
@@ -68,12 +71,12 @@ class _MyAppState extends State<MyApp> {
                         ConnectionState.waiting) {
                       log('Loading');
                       return Loading();
-                    } else if (chef) {
+                    } else if (doctor) {
                       if (userSnapshot.data != null) {
                         log('Logged in');
                         return StreamBuilder(
                           stream: FirebaseFirestore.instance
-                              .collection("chefs")
+                              .collection("doctors")
                               .doc(FirebaseAuth.instance.currentUser!.uid)
                               .snapshots(),
                           builder: (context, snapShot) {
@@ -82,15 +85,15 @@ class _MyAppState extends State<MyApp> {
                               return Loading();
                             } else {
                               if (snapShot.hasData) {
-                                return Dashboard();
+                                return Doctor_homepage();
                               }
                               log('Has no data');
-                              return Loginpage();
+                              return doctor_registration();
                             }
                           },
                         );
                       }
-                    } else if (!chef) {
+                    } else if (!doctor) {
                       if (userSnapshot.data != null) {
                         log('Logged in');
                         return StreamBuilder(
@@ -106,7 +109,7 @@ class _MyAppState extends State<MyApp> {
                               return Loading();
                             } else {
                               if (snapshot.hasData) {
-                                return Dashboard();
+                                return Bottompage();
                               }
                               log('Has no data');
                               return Splashscreen();

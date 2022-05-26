@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:healthtrackerandcalculator/Doctor/Doctor_login.dart';
+import 'package:healthtrackerandcalculator/user/User_login.dart';
+import 'package:lottie/lottie.dart';
 
 import '../Helper/dimensions.dart';
 import 'login_screen.dart';
@@ -25,30 +28,29 @@ class SigninState extends State<Signin> {
           width: double.infinity,
           child: Stack(
             children: [
-              // Image.asset(
-              //   "assets/CCI.jpg",
-              //   fit: BoxFit.cover,
-              //   height: double.infinity,
-              //   width: double.infinity,
-              //   scale: 1,
-              // ),
+              Image.asset(
+                // "images/1.jpg",
+                // 'images/background.jpg',
+                'images/Glassmorphism.jpg',
+                fit: BoxFit.cover,
+                height: double.infinity,
+                width: double.infinity,
+                scale: 1,
+              ),
               SafeArea(
                 child: Center(
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 50,
+                        height: 120,
                       ),
-                      // CircleAvatar(
-                      //   backgroundColor: Color(0xFF092349),
-                      //   radius: 100,
-                      //   child: Image.asset(
-                      //     'assets/CCI1.png',
-                      //     height: 130,
-                      //   ),
-                      // ),
+                      CircleAvatar(
+                        backgroundColor: Colors.white24,
+                        radius: 100,
+                        child: LottieBuilder.asset('images/healthcare.json'),
+                      ),
                       SizedBox(
-                        height: 240,
+                        height: 120,
                       ),
                       SizedBox(
                         height: 50,
@@ -62,16 +64,14 @@ class SigninState extends State<Signin> {
                               // ),
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            primary: Colors.white,
-                            onPrimary: Color.fromARGB(255, 18, 68, 138),
+                            primary: Colors.white24,
+                            onPrimary: Colors.white,
                           ),
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LoginScreen(
-                                  isowner: false,
-                                ),
+                                builder: (context) => USer_login(),
                               ),
                             );
                           },
@@ -100,16 +100,14 @@ class SigninState extends State<Signin> {
                               // ),
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            primary: Colors.white,
-                            onPrimary: Color.fromARGB(255, 18, 68, 138),
+                            primary: Colors.white24,
+                            onPrimary: Colors.white,
                           ),
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LoginScreen(
-                                  isowner: true,
-                                ),
+                                builder: (context) => doctor_login(),
                               ),
                             );
                           },

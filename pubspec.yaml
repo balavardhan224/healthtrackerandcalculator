@@ -88,6 +88,11 @@ flutter:
     - images/graph.json
     - images/femaledoctor.png
     - images/maledoctor.png
+    - images/Glassmorphism.jpg
+    - images/health.json
+    - images/background.jpg
+    - images/healthcare.json
+    - images/1.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

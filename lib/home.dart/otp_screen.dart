@@ -5,7 +5,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:healthtrackerandcalculator/BottomNavigation.dart';
 import 'package:healthtrackerandcalculator/Dashboard.dart';
+import 'package:healthtrackerandcalculator/Doctor/Doctor_registration_1.dart';
+import 'package:healthtrackerandcalculator/Doctor/doctor%20page.dart';
+import 'package:healthtrackerandcalculator/Doctor/splashscreen.dart';
 import 'package:healthtrackerandcalculator/home.dart/button.dart';
 import 'package:healthtrackerandcalculator/splashscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -49,10 +53,10 @@ class _OTPScreenState extends State<OTPScreen> {
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
-  // Future<void> checkRole() async {
-  //   SharedPreferences pref = await SharedPreferences.getInstance();
-  //   owner = (pref.getBool('chefRole') ?? false);
-  // }
+  Future<void> checkRole() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    owner = (pref.getBool('doctorRole') ?? false);
+  }
 
   _phoneVerified() async {
     if (owner) {
@@ -66,7 +70,7 @@ class _OTPScreenState extends State<OTPScreen> {
             Navigator.pushAndRemoveUntil(
                 context,
                 new MaterialPageRoute(
-                  builder: (context) => BottomAppBar(),
+                  builder: (context) => Doctor_homepage(),
                 ),
                 ((route) => false));
           } else {
@@ -76,7 +80,7 @@ class _OTPScreenState extends State<OTPScreen> {
             Navigator.pushAndRemoveUntil(
                 context,
                 new MaterialPageRoute(
-                  builder: (context) => new Splashscreen(),
+                  builder: (context) => doctor_registration(),
                 ),
                 ((route) => false));
           }
@@ -93,7 +97,7 @@ class _OTPScreenState extends State<OTPScreen> {
             Navigator.pushAndRemoveUntil(
                 context,
                 new MaterialPageRoute(
-                  builder: (context) => Dashboard(),
+                  builder: (context) => Bottompage(),
                 ),
                 ((route) => false));
           } else {

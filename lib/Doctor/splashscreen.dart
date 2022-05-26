@@ -3,16 +3,17 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:healthtrackerandcalculator/BottomNavigation.dart';
 import 'package:healthtrackerandcalculator/Dashboard.dart';
+import 'package:healthtrackerandcalculator/Doctor/Doctor_registration_1.dart';
 import 'package:healthtrackerandcalculator/user/Registration_user.dart';
 
 // import 'InputPage.dart';
 
-class Splashscreen extends StatefulWidget {
+class Splashscreen_doctor extends StatefulWidget {
   @override
-  _SplashscreenState createState() => _SplashscreenState();
+  _Splashscreen_doctorState createState() => _Splashscreen_doctorState();
 }
 
-class _SplashscreenState extends State<Splashscreen> {
+class _Splashscreen_doctorState extends State<Splashscreen_doctor> {
   void Function()? get callback => null;
 
   @override
@@ -23,7 +24,7 @@ class _SplashscreenState extends State<Splashscreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => Registration_user(),
+          builder: (context) => doctor_registration(),
         ),
       );
     });

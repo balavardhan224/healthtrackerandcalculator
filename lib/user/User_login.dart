@@ -6,6 +6,7 @@ import 'package:healthtrackerandcalculator/user/Registration_user.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:lottie/lottie.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -76,8 +77,11 @@ class _USer_loginState extends State<USer_login> {
       setState(() {
         isLoading = false;
       });
-      _scaffoldKey.currentState
-          ?.showSnackBar(SnackBar(content: Text("${e.message}")));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("${e.message}"),
+        ),
+      );
     }
   }
 
@@ -121,8 +125,8 @@ class _USer_loginState extends State<USer_login> {
           height: 16,
         ),
         Center(
-          child: FlatButton(
-            color: Colors.blueAccent,
+          child: TextButton(
+            // color: Colors.blueAccent,
             onPressed: () async {
               check();
               // alert();
@@ -177,8 +181,8 @@ class _USer_loginState extends State<USer_login> {
         SizedBox(
           height: 16,
         ),
-        FlatButton(
-            color: Colors.blueAccent,
+        TextButton(
+            // color: Colors.blueAccent,
             onPressed: () {
               PhoneAuthCredential phoneAuthCredential =
                   PhoneAuthProvider.credential(
@@ -205,13 +209,13 @@ class _USer_loginState extends State<USer_login> {
         width: double.infinity,
         child: Stack(
           children: [
-            // Image.asset(
-            //   "assets/CCI.jpg",
-            //   fit: BoxFit.cover,
-            //   height: double.infinity,
-            //   width: double.infinity,
-            //   scale: 1,
-            // ),
+            Image.asset(
+              "images/1.jpg",
+              fit: BoxFit.cover,
+              height: double.infinity,
+              width: double.infinity,
+              scale: 1,
+            ),
             SafeArea(
               child: SingleChildScrollView(
                 child: Padding(
@@ -254,9 +258,12 @@ class _USer_loginState extends State<USer_login> {
                           ),
 
                           CircleAvatar(
-                            backgroundColor: Color(0xFF092349),
+                            backgroundColor: Colors.white54,
                             radius: 80,
-                            // child: Image.asset('assets/CCI1.png'),
+                            child: LottieBuilder.asset(
+                              'images/health.json',
+                              height: 130,
+                            ),
                           ),
                           SizedBox(
                             height: 60,
@@ -267,7 +274,7 @@ class _USer_loginState extends State<USer_login> {
                               controller: _phoneController,
                               keyboardType: TextInputType.phone,
                               decoration: InputDecoration(
-                                fillColor: Colors.white,
+                                fillColor: Colors.white70,
                                 hintText: 'Phone Number',
                                 hintStyle: TextStyle(
                                     color: Colors.black, fontSize: 15),
@@ -399,7 +406,7 @@ class _USer_loginState extends State<USer_login> {
                               controller: _otpController,
                               keyboardType: TextInputType.number,
                               decoration: InputDecoration(
-                                fillColor: Colors.white,
+                                fillColor: Colors.white70,
                                 filled: true,
                                 hintText: "Enter OTP",
                                 hintStyle: TextStyle(
@@ -441,7 +448,7 @@ class _USer_loginState extends State<USer_login> {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-                                  primary: Colors.white,
+                                  primary: Colors.white70,
                                   side: BorderSide(
                                     color: Colors.white70,
                                     width: 2,

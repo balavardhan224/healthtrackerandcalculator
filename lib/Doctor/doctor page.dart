@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+import 'package:healthtrackerandcalculator/home.dart/button.dart';
+
+class Doctor_homepage extends StatefulWidget {
+  Doctor_homepage({Key? key}) : super(key: key);
+
+  @override
+  State<Doctor_homepage> createState() => _Doctor_homepageState();
+}
+
+class _Doctor_homepageState extends State<Doctor_homepage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: ElevatedButton(
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Signin(),
+                  ),
+                  (route) => false);
+            },
+            child: Text('Logout')),
+      ),
+    );
+  }
+}

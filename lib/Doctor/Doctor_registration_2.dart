@@ -1,9 +1,10 @@
 // ignore_for_file: unused_field, deprecated_member_use
 // import 'package:chef_connect_india/Helper/models/chef.dart';
+import 'package:healthtrackerandcalculator/Doctor/doctor%20page.dart';
 import 'package:healthtrackerandcalculator/Helper/models/doctor.dart';
 // import 'package:chef_connect_india/chef_portal/adddishes.dart';
 // import 'package:chef_connect_india/chef_portal/chef_dashboard.dart';
-import 'package:healthtrackerandcalculator/Dashboard.dart';
+// import 'package:healthtrackerandcalculator/Dashboard.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -14,16 +15,14 @@ class doctor_registration_2 extends StatefulWidget {
   final String firstname;
   final String lastname;
   // final String phonenumber;
-  final int workexperience;
-  final String worklocation;
-  final String currentlocation;
-  doctor_registration_2(
-      {required this.firstname,
-      required this.lastname,
-      // required this.phonenumber,
-      required this.workexperience,
-      required this.worklocation,
-      required this.currentlocation});
+  // final int workexperience;
+  // final String worklocation;
+  // final String currentlocation;
+  doctor_registration_2({
+    required this.firstname,
+    required this.lastname,
+    // required this.phonenumber,
+  });
 
   @override
   State<doctor_registration_2> createState() => _doctor_registration_2State();
@@ -85,7 +84,7 @@ class _doctor_registration_2State extends State<doctor_registration_2> {
         child: Stack(
           children: [
             Image.asset(
-              "assets/CCI.jpg",
+              "images/Glassmorphism.jpg",
               fit: BoxFit.cover,
               height: double.infinity,
               width: double.infinity,
@@ -107,7 +106,7 @@ class _doctor_registration_2State extends State<doctor_registration_2> {
                             child: CircleAvatar(
                               backgroundColor: Color(0xFF092349),
                               radius: 80,
-                              child: Image.asset('assets/CCI1.png'),
+                              // child: Image.asset('assets/CCI1.png'),
                             ),
                           ),
                           // SizedBox(
@@ -171,133 +170,133 @@ class _doctor_registration_2State extends State<doctor_registration_2> {
                           //   },
                           // ),
 
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: DropdownButtonFormField<String>(
-                              decoration: InputDecoration(
-                                labelText: 'Looking For',
-                                labelStyle: TextStyle(
-                                    backgroundColor: Colors.white,
-                                    fontSize: 16,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600),
-                                prefixIcon: Icon(Icons.settings),
-                                fillColor: Colors.white,
-                                hintText: 'Looking For',
-                                hintStyle: TextStyle(
-                                  backgroundColor: Colors.white,
-                                  color: Colors.black,
-                                  fontSize: 15,
-                                  fontFamily: 'Montserrat',
-                                ),
-                                filled: true,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                    color: Colors.white,
-                                    width: 2,
-                                  ),
-                                ),
-                                focusedBorder: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.white,
-                                    width: 2,
-                                  ),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                    color: Colors.white,
-                                    width: 2,
-                                  ),
-                                ),
-                              ),
-                              validator: (tvalue) {
-                                if (tvalue == null) {
-                                  //allow upper and lower case alphabets and space
-                                  return "Select period of work";
-                                }
-                                return null;
-                              },
-                              autofocus: false,
-                              value: timeValue,
-                              isExpanded: true,
-                              iconSize: 25,
-                              icon: Icon(Icons.arrow_drop_down,
-                                  color: Colors.black),
-                              items: time.map(buildTimeMenuItem).toList(),
-                              onChanged: (tvalue) => setState(() {
-                                this.timeValue = tvalue;
-                                timeEditingController.text = tvalue!;
-                              }),
-                              onSaved: (tvalue) {
-                                timeEditingController.text = tvalue!;
-                              },
-                            ),
-                          ),
+                          // Padding(
+                          //   padding: const EdgeInsets.all(8.0),
+                          //   child: DropdownButtonFormField<String>(
+                          //     decoration: InputDecoration(
+                          //       labelText: 'Looking For',
+                          //       labelStyle: TextStyle(
+                          //           backgroundColor: Colors.white,
+                          //           fontSize: 16,
+                          //           color: Colors.black,
+                          //           fontWeight: FontWeight.w600),
+                          //       prefixIcon: Icon(Icons.settings),
+                          //       fillColor: Colors.white,
+                          //       hintText: 'Looking For',
+                          //       hintStyle: TextStyle(
+                          //         backgroundColor: Colors.white,
+                          //         color: Colors.black,
+                          //         fontSize: 15,
+                          //         fontFamily: 'Montserrat',
+                          //       ),
+                          //       filled: true,
+                          //       border: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.circular(10),
+                          //         borderSide: BorderSide(
+                          //           color: Colors.white,
+                          //           width: 2,
+                          //         ),
+                          //       ),
+                          //       focusedBorder: new OutlineInputBorder(
+                          //         borderRadius: new BorderRadius.circular(10.0),
+                          //         borderSide: BorderSide(
+                          //           color: Colors.white,
+                          //           width: 2,
+                          //         ),
+                          //       ),
+                          //       enabledBorder: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.circular(10),
+                          //         borderSide: BorderSide(
+                          //           color: Colors.white,
+                          //           width: 2,
+                          //         ),
+                          //       ),
+                          //     ),
+                          //     validator: (tvalue) {
+                          //       if (tvalue == null) {
+                          //         //allow upper and lower case alphabets and space
+                          //         return "Select period of work";
+                          //       }
+                          //       return null;
+                          //     },
+                          //     autofocus: false,
+                          //     value: timeValue,
+                          //     isExpanded: true,
+                          //     iconSize: 25,
+                          //     icon: Icon(Icons.arrow_drop_down,
+                          //         color: Colors.black),
+                          //     items: time.map(buildTimeMenuItem).toList(),
+                          //     onChanged: (tvalue) => setState(() {
+                          //       this.timeValue = tvalue;
+                          //       timeEditingController.text = tvalue!;
+                          //     }),
+                          //     onSaved: (tvalue) {
+                          //       timeEditingController.text = tvalue!;
+                          //     },
+                          //   ),
+                          // ),
 
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: DropdownButtonFormField<String>(
-                              decoration: InputDecoration(
-                                labelText: 'Current Salary Per Month',
-                                labelStyle: TextStyle(
-                                    backgroundColor: Colors.white,
-                                    fontFamily: 'Montserrat',
-                                    fontSize: 16,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600),
-                                prefixIcon: Icon(Icons.money),
-                                fillColor: Colors.white,
-                                // hintText: 'Select Current Salary',
-                                hintStyle: TextStyle(
-                                    color: Colors.black, fontSize: 15),
-                                filled: true,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                    color: Colors.white,
-                                    width: 2,
-                                  ),
-                                ),
-                                focusedBorder: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.white,
-                                    width: 2,
-                                  ),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                    color: Colors.white,
-                                    width: 2,
-                                  ),
-                                ),
-                              ),
-                              autofocus: false,
-                              value: salaryValue,
-                              isExpanded: true,
-                              iconSize: 25,
-                              icon: Icon(Icons.arrow_drop_down,
-                                  color: Colors.black),
-                              items: salary.map(buildMenuItem).toList(),
-                              onChanged: (svalue) => setState(() {
-                                this.salaryValue = svalue;
-                                salaryEditingController.text = svalue!;
-                              }),
-                              onSaved: (lvalue) {
-                                salaryEditingController.text = lvalue!;
-                              },
-                              validator: (lvalue) {
-                                if (lvalue == null) {
-                                  return "Select your Salary per Month";
-                                }
-                                return null;
-                              },
-                            ),
-                          ),
+                          // Padding(
+                          //   padding: const EdgeInsets.all(8.0),
+                          //   child: DropdownButtonFormField<String>(
+                          //     decoration: InputDecoration(
+                          //       labelText: 'Current Salary Per Month',
+                          //       labelStyle: TextStyle(
+                          //           backgroundColor: Colors.white,
+                          //           fontFamily: 'Montserrat',
+                          //           fontSize: 16,
+                          //           color: Colors.black,
+                          //           fontWeight: FontWeight.w600),
+                          //       prefixIcon: Icon(Icons.money),
+                          //       fillColor: Colors.white,
+                          //       // hintText: 'Select Current Salary',
+                          //       hintStyle: TextStyle(
+                          //           color: Colors.black, fontSize: 15),
+                          //       filled: true,
+                          //       border: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.circular(10),
+                          //         borderSide: BorderSide(
+                          //           color: Colors.white,
+                          //           width: 2,
+                          //         ),
+                          //       ),
+                          //       focusedBorder: new OutlineInputBorder(
+                          //         borderRadius: new BorderRadius.circular(10.0),
+                          //         borderSide: BorderSide(
+                          //           color: Colors.white,
+                          //           width: 2,
+                          //         ),
+                          //       ),
+                          //       enabledBorder: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.circular(10),
+                          //         borderSide: BorderSide(
+                          //           color: Colors.white,
+                          //           width: 2,
+                          //         ),
+                          //       ),
+                          //     ),
+                          //     autofocus: false,
+                          //     value: salaryValue,
+                          //     isExpanded: true,
+                          //     iconSize: 25,
+                          //     icon: Icon(Icons.arrow_drop_down,
+                          //         color: Colors.black),
+                          //     items: salary.map(buildMenuItem).toList(),
+                          //     onChanged: (svalue) => setState(() {
+                          //       this.salaryValue = svalue;
+                          //       salaryEditingController.text = svalue!;
+                          //     }),
+                          //     onSaved: (lvalue) {
+                          //       salaryEditingController.text = lvalue!;
+                          //     },
+                          //     validator: (lvalue) {
+                          //       if (lvalue == null) {
+                          //         return "Select your Salary per Month";
+                          //       }
+                          //       return null;
+                          //     },
+                          //   ),
+                          // ),
 
                           Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -535,30 +534,30 @@ class _doctor_registration_2State extends State<doctor_registration_2> {
     );
   }
 
-  DropdownMenuItem<String> buildMenuItem(String salary) => DropdownMenuItem(
-        value: salary,
-        child: Text(
-          salary,
-          style: TextStyle(fontSize: 18),
-        ),
-      );
+  // DropdownMenuItem<String> buildMenuItem(String salary) => DropdownMenuItem(
+  //       value: salary,
+  //       child: Text(
+  //         salary,
+  //         style: TextStyle(fontSize: 18),
+  //       ),
+  //     );
 
-  DropdownMenuItem<String> buildChefMenuItem(String worktype) =>
-      DropdownMenuItem(
-        value: worktype,
-        child: Text(
-          worktype,
-          style: TextStyle(fontSize: 18),
-        ),
-      );
+  // DropdownMenuItem<String> buildChefMenuItem(String worktype) =>
+  //     DropdownMenuItem(
+  //       value: worktype,
+  //       child: Text(
+  //         worktype,
+  //         style: TextStyle(fontSize: 18),
+  //       ),
+  //     );
 
-  DropdownMenuItem<String> buildTimeMenuItem(String time) => DropdownMenuItem(
-        value: time,
-        child: Text(
-          time,
-          style: TextStyle(fontSize: 18),
-        ),
-      );
+  // DropdownMenuItem<String> buildTimeMenuItem(String time) => DropdownMenuItem(
+  //       value: time,
+  //       child: Text(
+  //         time,
+  //         style: TextStyle(fontSize: 18),
+  //       ),
+  //     );
 
   postDetailsToFirestore() async {
     // calling our firestore
@@ -579,7 +578,7 @@ class _doctor_registration_2State extends State<doctor_registration_2> {
     doctorModel.mobile1 = user.phoneNumber;
     // doctorModel.experience = widget.workexperience;
     // doctorModel.address = widget.currentlocation;
-    doctorModel.city = widget.worklocation;
+    // doctorModel.city = widget.worklocation;
     // doctorModel.currentsalary = salaryEditingController.text;
     // doctorModel.cheffees = int.parse(cheffeesEditingController.text);
     // doctorModel.cuisineexpert = cusineEditingController.text;
@@ -598,7 +597,11 @@ class _doctor_registration_2State extends State<doctor_registration_2> {
         .set(doctorModel.toMap());
     Fluttertoast.showToast(msg: "Account created successfully :) ");
 
-    Navigator.pushAndRemoveUntil((context),
-        MaterialPageRoute(builder: (context) => Dashboard()), (route) => false);
+    Navigator.pushAndRemoveUntil(
+        (context),
+        MaterialPageRoute(
+          builder: (context) => Doctor_homepage(),
+        ),
+        (route) => false);
   }
 }
