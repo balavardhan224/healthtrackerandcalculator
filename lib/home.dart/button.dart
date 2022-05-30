@@ -19,6 +19,7 @@ class Signin extends StatefulWidget {
 class SigninState extends State<Signin> {
   @override
   Widget build(BuildContext context) {
+    print('check1');
     vpH = getViewportHeight(context);
     vpW = getViewportWidth(context);
     return SafeArea(
@@ -71,7 +72,9 @@ class SigninState extends State<Signin> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => USer_login(),
+                                builder: (context) => LoginScreen(
+                                  isowner: false,
+                                ),
                               ),
                             );
                           },
@@ -107,7 +110,9 @@ class SigninState extends State<Signin> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => doctor_login(),
+                                builder: (context) => LoginScreen(
+                                  isowner: true,
+                                ),
                               ),
                             );
                           },

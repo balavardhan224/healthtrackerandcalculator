@@ -25,7 +25,7 @@ Future<void> main() async {
 }
 
 Future initialization(BuildContext? context) async {
-  await Future.delayed(Duration(seconds: 2));
+  await Future.delayed(Duration(seconds: 0));
 }
 
 bool doctor = false;

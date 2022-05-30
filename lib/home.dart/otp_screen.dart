@@ -54,12 +54,14 @@ class _OTPScreenState extends State<OTPScreen> {
   }
 
   Future<void> checkRole() async {
+    print('check5');
     SharedPreferences pref = await SharedPreferences.getInstance();
     owner = (pref.getBool('doctorRole') ?? false);
+    print(owner);
   }
 
   _phoneVerified() async {
-    if (owner) {
+    if (owner == true) {
       await FirebaseFirestore.instance
           .collection("doctors")
           .doc(FirebaseAuth.instance.currentUser!.uid)
@@ -196,6 +198,7 @@ class _OTPScreenState extends State<OTPScreen> {
 
   @override
   Widget build(BuildContext context) {
+    checkRole();
     vpH = getViewportHeight(context);
     vpW = getViewportWidth(context);
     return WillPopScope(

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import '../Helper/dimensions.dart';
@@ -43,11 +44,13 @@ class _LoginScreenState extends State<LoginScreen> {
     if (widget.isowner) {
       await pref.setBool('doctorRole', true);
     } else {
-      await pref.setBool('DoctorRole', false);
+      await pref.setBool('doctorRole', false);
     }
   }
 
   void _signIn() async {
+    print('check4');
+    print(widget.isowner);
     _formkey.currentState!.validate();
     if (LoginScreen.phone!.isNotEmpty && LoginScreen.phone!.length == 10) {
       // Navigator.pushReplacementNamed(context, "/otpScreen");
@@ -64,6 +67,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print('check2');
+    print(widget.isowner);
     vpH = getViewportHeight(context);
     vpW = getViewportWidth(context);
     return SafeArea(
@@ -97,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              widget.isowner ? "" : "",
+                              widget.isowner ? "" : "patient",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: 'Montserrat',
@@ -142,7 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 8,
                             ),
                             Text(
-                              widget.isowner ? "" : "DOCTOR",
+                              widget.isowner ? "doctor" : "patient",
                               style: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontSize: 15,
@@ -184,6 +189,8 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Widget _formModule() {
+    print('check3');
+    print(widget.isowner);
     return Padding(
       padding: const EdgeInsets.fromLTRB(30, 50, 30, 0),
       child: Form(
