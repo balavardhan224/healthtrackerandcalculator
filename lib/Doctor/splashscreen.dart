@@ -24,7 +24,10 @@ class _Splashscreen_doctorState extends State<Splashscreen_doctor> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => doctor_registration(),
+          builder: (context) => doctor_registration(
+            firstname: '',
+            lastname: '',
+          ),
         ),
       );
     });

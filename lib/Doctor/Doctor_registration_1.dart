@@ -1,10 +1,28 @@
 // ignore_for_file: must_be_immutable
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 // import 'package:chef_connect_india/roles/chef/chef_registration_2.dart';
 // import 'package:healthtrackerandcalculator/Doctor/Doctor_registration_1.dart';
 import 'package:healthtrackerandcalculator/Doctor/Doctor_registration_2.dart';
+import 'package:healthtrackerandcalculator/Doctor/doctor%20page.dart';
+import 'package:lottie/lottie.dart';
+
+import '../Helper/models/doctor.dart';
 
 class doctor_registration extends StatefulWidget {
+  final String firstname;
+  final String lastname;
+  // final String phonenumber;
+  // final int workexperience;
+  // final String worklocation;
+  // final String currentlocation;
+  doctor_registration({
+    required this.firstname,
+    required this.lastname,
+    // required this.phonenumber,
+  });
   // final String phonenumber;
   // doctor_registration({required this.phonenumber});
 
@@ -13,11 +31,15 @@ class doctor_registration extends StatefulWidget {
 }
 
 class _doctor_registrationState extends State<doctor_registration> {
+  final _auth = FirebaseAuth.instance;
   String? errorMessage;
   final formGlobalKey = GlobalKey<FormState>();
   final firstNameEditingController = new TextEditingController();
   final lastNameEditingController = new TextEditingController();
-  // final workExperienceEditingController = new TextEditingController();
+  final workExperienceEditingController = new TextEditingController();
+  final salaryEditingController = new TextEditingController();
+  final professionEditingContorller = new TextEditingController();
+  final emailEditingController = new TextEditingController();
   // final worklocationEditingController = new TextEditingController();
   // final currentlocationEditingController = new TextEditingController();
 
@@ -34,7 +56,7 @@ class _doctor_registrationState extends State<doctor_registration> {
         child: Stack(
           children: [
             Image.asset(
-              "images/Glassmorphism.jpg",
+              "images/1.jpg",
               fit: BoxFit.cover,
               height: double.infinity,
               width: double.infinity,
@@ -58,9 +80,12 @@ class _doctor_registrationState extends State<doctor_registration> {
                                 bottom: 20,
                               ),
                               child: CircleAvatar(
-                                backgroundColor: Color(0xFF092349),
+                                backgroundColor: Colors.white70,
                                 radius: 80,
-                                // child: Image.asset('assets/CCI1.png'),
+                                child: LottieBuilder.asset(
+                                  'images/doctor consultation.json',
+                                  height: 140,
+                                ),
                               ),
                             ),
 
@@ -135,16 +160,12 @@ class _doctor_registrationState extends State<doctor_registration> {
                                 autofocus: false,
                                 controller: lastNameEditingController,
                                 keyboardType: TextInputType.name,
-                                // validator: (value) {
-                                //   if (value!.isEmpty ||
-                                //       RegExp(r'^[a-z A-Z]+$')
-                                //           .hasMatch(value)) {
-                                //     //allow upper and lower case alphabets and space
-                                //     return "Enter Correct Last Name";
-                                //   } else {
-                                //     return null;
-                                //   }
-                                // },
+                                validator: (value) {
+                                  if (lastNameEditingController.text.isEmpty) {
+                                    return "*Required";
+                                  }
+                                  return null;
+                                },
                                 onSaved: (value) {
                                   lastNameEditingController.text = value!;
                                 },
@@ -190,199 +211,239 @@ class _doctor_registrationState extends State<doctor_registration> {
                                 ),
                               ),
                             ),
-
-                            // Padding(
-                            //   padding: const EdgeInsets.all(8.0),
-                            //   child: TextFormField(
-                            //     autofocus: false,
-                            //     controller: workExperienceEditingController,
-                            //     keyboardType: TextInputType.number,
-                            //     validator: (value) {
-                            //       if (value!.isEmpty ||
-                            //           !RegExp(r'^[0-9]+$').hasMatch(value)) {
-                            //         //allow upper and lower case alphabets and space
-                            //         return "Enter Experience";
-                            //       } else {
-                            //         return null;
-                            //       }
-                            //     },
-                            //     onSaved: (value) {
-                            //       workExperienceEditingController.text = value!;
-                            //     },
-                            //     textInputAction: TextInputAction.next,
-                            //     decoration: InputDecoration(
-                            //       labelText: 'Work Experience',
-                            //       labelStyle: TextStyle(
-                            //           backgroundColor: Colors.white,
-                            //           fontFamily: 'Montserrat',
-                            //           fontSize: 16,
-                            //           color: Colors.black,
-                            //           fontWeight: FontWeight.w600),
-                            //       prefixIcon: Icon(Icons.history_outlined),
-                            //       fillColor: Colors.white,
-                            //       hintText: 'Ex: 11',
-                            //       hintStyle: TextStyle(
-                            //           color: Colors.black, fontSize: 15),
-                            //       filled: true,
-                            //       border: OutlineInputBorder(
-                            //         borderRadius: BorderRadius.circular(10),
-                            //         borderSide: BorderSide(
-                            //           color: Colors.white,
-                            //           width: 2,
-                            //         ),
-                            //       ),
-                            //       focusedBorder: new OutlineInputBorder(
-                            //         borderRadius:
-                            //             new BorderRadius.circular(10.0),
-                            //         borderSide: BorderSide(
-                            //           color: Colors.white,
-                            //           width: 2,
-                            //         ),
-                            //       ),
-                            //       enabledBorder: OutlineInputBorder(
-                            //         borderRadius: BorderRadius.circular(10),
-                            //         borderSide: BorderSide(
-                            //           color: Colors.white,
-                            //           width: 2,
-                            //         ),
-                            //       ),
-                            //     ),
-                            //   ),
-                            // ),
-
-                            // Padding(
-                            //   padding: const EdgeInsets.all(8.0),
-                            //   child: TextFormField(
-                            //     autofocus: false,
-                            //     controller: currentlocationEditingController,
-                            //     keyboardType: TextInputType.streetAddress,
-                            //     validator: (value) {
-                            //       if (value!.isEmpty ||
-                            //           !RegExp(r'^[a-z A-Z]+$')
-                            //               .hasMatch(value)) {
-                            //         //allow upper and lower case alphabets and space
-                            //         return "Enter Current Location";
-                            //       } else {
-                            //         return null;
-                            //       }
-                            //     },
-                            //     onSaved: (value) {
-                            //       currentlocationEditingController.text =
-                            //           value!;
-                            //     },
-                            //     textInputAction: TextInputAction.next,
-                            //     decoration: InputDecoration(
-                            //       labelText: 'Current Location',
-                            //       labelStyle: TextStyle(
-                            //           backgroundColor: Colors.white,
-                            //           fontFamily: 'Montserrat',
-                            //           fontSize: 16,
-                            //           color: Colors.black,
-                            //           fontWeight: FontWeight.w600),
-                            //       prefixIcon: Icon(Icons.my_location),
-                            //       fillColor: Colors.white,
-                            //       hintText: 'Ex: Jaipur',
-                            //       hintStyle: TextStyle(
-                            //           fontFamily: 'Montserrat',
-                            //           color: Colors.black,
-                            //           fontSize: 15),
-                            //       filled: true,
-                            //       border: OutlineInputBorder(
-                            //         borderRadius: BorderRadius.circular(10),
-                            //         borderSide: BorderSide(
-                            //           color: Colors.white,
-                            //           width: 2,
-                            //         ),
-                            //       ),
-                            //       focusedBorder: new OutlineInputBorder(
-                            //         borderRadius:
-                            //             new BorderRadius.circular(10.0),
-                            //         borderSide: BorderSide(
-                            //           color: Colors.white,
-                            //           width: 2,
-                            //         ),
-                            //       ),
-                            //       enabledBorder: OutlineInputBorder(
-                            //         borderRadius: BorderRadius.circular(10),
-                            //         borderSide: BorderSide(
-                            //           color: Colors.white,
-                            //           width: 2,
-                            //         ),
-                            //       ),
-                            //     ),
-                            //   ),
-                            // ),
-
-                            // Padding(
-                            //   padding: const EdgeInsets.all(8.0),
-                            //   child: DropdownButtonFormField<String>(
-                            //     decoration: InputDecoration(
-                            //       labelText: 'Work Location',
-                            //       labelStyle: TextStyle(
-                            //         fontFamily: 'Montserrat',
-                            //         fontSize: 16,
-                            //         color: Colors.black,
-                            //         backgroundColor: Colors.white,
-                            //         fontWeight: FontWeight.w600,
-                            //       ),
-                            //       prefixIcon: Icon(Icons.pin_drop),
-                            //       fillColor: Colors.white,
-                            //       hintText: 'Select Work Location',
-                            //       hintStyle: TextStyle(
-                            //         fontFamily: 'Montserrat',
-                            //         color: Colors.black,
-                            //         fontSize: 16,
-                            //       ),
-                            //       filled: true,
-                            //       border: OutlineInputBorder(
-                            //         borderRadius: BorderRadius.circular(10),
-                            //         borderSide: BorderSide(
-                            //           color: Colors.white,
-                            //           width: 2,
-                            //         ),
-                            //       ),
-                            //       focusedBorder: new OutlineInputBorder(
-                            //         borderRadius:
-                            //             new BorderRadius.circular(10.0),
-                            //         borderSide: BorderSide(
-                            //           color: Colors.white,
-                            //           width: 2,
-                            //         ),
-                            //       ),
-                            //       enabledBorder: OutlineInputBorder(
-                            //         borderRadius: BorderRadius.circular(10),
-                            //         borderSide: BorderSide(
-                            //           color: Colors.white,
-                            //           width: 2,
-                            //         ),
-                            //       ),
-                            //     ),
-                            //     autofocus: false,
-                            //     value: locValue,
-                            //     isExpanded: true,
-                            //     iconSize: 25,
-                            //     icon: Icon(Icons.arrow_drop_down,
-                            //         color: Colors.black),
-                            //     items: worklocation.map(buildMenuItem).toList(),
-                            //     onChanged: (lvalue) => setState(() {
-                            //       this.locValue = lvalue;
-                            //       worklocationEditingController.text = lvalue!;
-                            //     }),
-                            //     onSaved: (lvalue) {
-                            //       worklocationEditingController.text = lvalue!;
-                            //     },
-                            //     validator: (lvalue) {
-                            //       if (lvalue == null) {
-                            //         return "Select your Work Location";
-                            //       }
-                            //       return null;
-                            //     },
-                            //   ),
-                            // ),
-                            // // SizedBox(
-                            // //   height: 15,
-                            // // ),
-
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: TextFormField(
+                                autofocus: false,
+                                controller: emailEditingController,
+                                keyboardType: TextInputType.name,
+                                validator: (value) {
+                                  if (value!.isEmpty ||
+                                      !RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                                          .hasMatch(value)) {
+                                    return ("Please Enter Your Email");
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                                onSaved: (value) {
+                                  emailEditingController.text = value!;
+                                },
+                                textInputAction: TextInputAction.next,
+                                decoration: InputDecoration(
+                                  labelText: 'Email',
+                                  labelStyle: TextStyle(
+                                      backgroundColor: Colors.white,
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600),
+                                  prefixIcon: Icon(Icons.account_circle),
+                                  fillColor: Colors.white,
+                                  hintText: 'Email',
+                                  hintStyle: TextStyle(
+                                      fontFamily: 'Montserrat',
+                                      color: Colors.black,
+                                      fontSize: 15),
+                                  filled: true,
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  focusedBorder: new OutlineInputBorder(
+                                    borderRadius:
+                                        new BorderRadius.circular(10.0),
+                                    borderSide: BorderSide(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: TextFormField(
+                                autofocus: false,
+                                controller: professionEditingContorller,
+                                keyboardType: TextInputType.name,
+                                validator: (value) {
+                                  if (professionEditingContorller
+                                      .text.isEmpty) {
+                                    return "*Required";
+                                  }
+                                  return null;
+                                },
+                                onSaved: (value) {
+                                  professionEditingContorller.text = value!;
+                                },
+                                textInputAction: TextInputAction.next,
+                                decoration: InputDecoration(
+                                  labelText: 'Profession',
+                                  labelStyle: TextStyle(
+                                      backgroundColor: Colors.white,
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600),
+                                  prefixIcon: Icon(Icons.account_circle),
+                                  fillColor: Colors.white,
+                                  hintText: 'Profession',
+                                  hintStyle: TextStyle(
+                                      fontFamily: 'Montserrat',
+                                      color: Colors.black,
+                                      fontSize: 15),
+                                  filled: true,
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  focusedBorder: new OutlineInputBorder(
+                                    borderRadius:
+                                        new BorderRadius.circular(10.0),
+                                    borderSide: BorderSide(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: TextFormField(
+                                autofocus: false,
+                                controller: salaryEditingController,
+                                keyboardType: TextInputType.name,
+                                validator: (value) {
+                                  if (salaryEditingController.text.isEmpty) {
+                                    return "*Required";
+                                  }
+                                  return null;
+                                },
+                                onSaved: (value) {
+                                  salaryEditingController.text = value!;
+                                },
+                                textInputAction: TextInputAction.next,
+                                decoration: InputDecoration(
+                                  labelText: 'Fees per patient',
+                                  labelStyle: TextStyle(
+                                      backgroundColor: Colors.white,
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600),
+                                  prefixIcon: Icon(Icons.account_circle),
+                                  fillColor: Colors.white,
+                                  hintText: 'Fees per patient',
+                                  hintStyle: TextStyle(
+                                      fontFamily: 'Montserrat',
+                                      color: Colors.black,
+                                      fontSize: 15),
+                                  filled: true,
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  focusedBorder: new OutlineInputBorder(
+                                    borderRadius:
+                                        new BorderRadius.circular(10.0),
+                                    borderSide: BorderSide(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: TextFormField(
+                                autofocus: false,
+                                controller: workExperienceEditingController,
+                                keyboardType: TextInputType.name,
+                                validator: (value) {
+                                  if (workExperienceEditingController
+                                      .text.isEmpty) {
+                                    return "*Required";
+                                  }
+                                  return null;
+                                },
+                                onSaved: (value) {
+                                  workExperienceEditingController.text = value!;
+                                },
+                                textInputAction: TextInputAction.next,
+                                decoration: InputDecoration(
+                                  labelText: 'Experience',
+                                  labelStyle: TextStyle(
+                                      backgroundColor: Colors.white,
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600),
+                                  prefixIcon: Icon(Icons.account_circle),
+                                  fillColor: Colors.white,
+                                  hintText: 'Eperience',
+                                  hintStyle: TextStyle(
+                                      fontFamily: 'Montserrat',
+                                      color: Colors.black,
+                                      fontSize: 15),
+                                  filled: true,
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  focusedBorder: new OutlineInputBorder(
+                                    borderRadius:
+                                        new BorderRadius.circular(10.0),
+                                    borderSide: BorderSide(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
                             // signUpButton
                             Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -390,55 +451,65 @@ class _doctor_registrationState extends State<doctor_registration> {
                                 height: 45,
                                 width: 200,
                                 child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      shape: RoundedRectangleBorder(
-                                        side: BorderSide(
-                                          color: Colors.white,
-                                          width: 2,
-                                        ),
-                                        borderRadius: BorderRadius.circular(10),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Colors.white,
+                                    onPrimary: Colors.indigo,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(
+                                        10,
                                       ),
-                                      primary: Colors.white,
-                                      onPrimary:
-                                          Color.fromARGB(255, 18, 68, 138),
                                     ),
-                                    onPressed: () {
-                                      if (formGlobalKey.currentState!
-                                          .validate()) {
-                                        // print('phn: ${widget.phonenumber}');
-                                        // print(
-                                        //     "fn: ${firstNameEditingController.text}");
-                                        // print(
-                                        //     "ln: ${lastNameEditingController.text}");
-                                        // print(
-                                        //     "wrk exp: ${workExperienceEditingController.text}");
-                                        // print(
-                                        //     "wrk loc: ${worklocationEditingController.text}");
-                                        // print(
-                                        //     "wrk typ: ${workTypeEditingController.text}");
-
-                                        Navigator.push(
-                                            (context),
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    doctor_registration_2(
-                                                      firstname:
-                                                          firstNameEditingController
-                                                              .text,
-                                                      lastname:
-                                                          lastNameEditingController
-                                                              .text,
-                                                    )));
+                                  ),
+                                  onPressed: () async {
+                                    if (formGlobalKey.currentState!
+                                        .validate()) {
+                                      try {
+                                        postDetailsToFirestore()
+                                            .catchError((e) {
+                                          Fluttertoast.showToast(
+                                              msg: e!.message);
+                                        });
+                                      } on FirebaseAuthException catch (error) {
+                                        switch (error.code) {
+                                          case "invalid-phone":
+                                            errorMessage =
+                                                "Your phone number appears to be malformed.";
+                                            break;
+                                          case "user-not-found":
+                                            errorMessage =
+                                                "User with this email doesn't exist.";
+                                            break;
+                                          case "user-disabled":
+                                            errorMessage =
+                                                "User with this email has been disabled.";
+                                            break;
+                                          case "too-many-requests":
+                                            errorMessage = "Too many requests";
+                                            break;
+                                          // case "operation-not-allowed":
+                                          //   errorMessage =
+                                          //       "Signing in with Email and Password is not enabled.";
+                                          //   break;
+                                          default:
+                                            errorMessage =
+                                                "An undefined Error happened.";
+                                        }
+                                        Fluttertoast.showToast(
+                                            msg: errorMessage!);
+                                        print(error.code);
                                       }
-                                    },
-                                    child: Text(
-                                      "Next",
-                                      style: TextStyle(
+                                    }
+                                  },
+                                  child: Text(
+                                    'Register',
+                                    style: TextStyle(
                                         fontFamily: 'Montserrat',
-                                        fontSize: 18,
                                         fontWeight: FontWeight.w600,
-                                      ),
-                                    )),
+                                        fontSize: 16,
+                                        color:
+                                            Color.fromARGB(255, 18, 68, 138)),
+                                  ),
+                                ),
                               ),
                             )
                           ],
@@ -481,4 +552,53 @@ class _doctor_registrationState extends State<doctor_registration> {
 //     return regex.hasMatch(email);
 //   }
 // }
+  postDetailsToFirestore() async {
+    // calling our firestore
+    // calling our user model
+    // sedning these values
+    var name = '${widget.firstname} ${widget.lastname}';
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    User? user = _auth.currentUser;
+    user!.updateProfile(displayName: name);
+
+    DoctorModel doctorModel = DoctorModel();
+
+    // writing all the values
+    doctorModel.uid = user.uid;
+    // doctorModel.email = emailEditingController.text;
+    doctorModel.firstname = firstNameEditingController.text;
+    doctorModel.lastname = lastNameEditingController.text;
+    doctorModel.email = emailEditingController.text;
+    doctorModel.mobile1 = user.phoneNumber;
+    doctorModel.salary = salaryEditingController.text;
+    doctorModel.experince = workExperienceEditingController.text;
+    doctorModel.profession = professionEditingContorller.text;
+    // doctorModel.experience = widget.workexperience;
+    // doctorModel.address = widget.currentlocation;
+    // doctorModel.city = widget.worklocation;
+    // doctorModel.currentsalary = salaryEditingController.text;
+    // doctorModel.cheffees = int.parse(cheffeesEditingController.text);
+    // doctorModel.cuisineexpert = cusineEditingController.text;
+    // doctorModel.cuisineexpert = _myCusine;
+    // doctorModel.workpreference = timeEditingController.text;
+    // doctorModel.dutystatus = true;
+    // doctorModel.level = 'Expert';
+    // doctorModel.rating = 3.9;
+    // doctorModel.role = 'chef';
+    doctorModel.profilepic =
+        'https://firebasestorage.googleapis.com/v0/b/chef-connect-testing.appspot.com/o/chef-profile%2Ftyt1vei5Zlfdm2miAs90seonQt22?alt=media&token=8fcaf32d-96d0-4afa-a711-d90cf8911c9e';
+
+    await firebaseFirestore
+        .collection("doctors")
+        .doc(doctorModel.uid)
+        .set(doctorModel.toMap());
+    Fluttertoast.showToast(msg: "Account created successfully :) ");
+
+    Navigator.pushAndRemoveUntil(
+        (context),
+        MaterialPageRoute(
+          builder: (context) => Doctor_homepage(),
+        ),
+        (route) => false);
+  }
 }

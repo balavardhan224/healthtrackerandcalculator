@@ -80,7 +80,10 @@ class _OTPScreenState extends State<OTPScreen> {
             Navigator.pushAndRemoveUntil(
                 context,
                 new MaterialPageRoute(
-                  builder: (context) => doctor_registration(),
+                  builder: (context) => doctor_registration(
+                    firstname: '',
+                    lastname: '',
+                  ),
                 ),
                 ((route) => false));
           }

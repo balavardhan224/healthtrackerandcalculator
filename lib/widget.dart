@@ -229,7 +229,14 @@ Widget buildbox1(BuildContext context) {
             Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Doctor_list(),
+                  builder: (context) => Doctor_list(
+                    experince: '',
+                    firstname: '',
+                    lastname: '',
+                    rating: '',
+                    profession: '',
+                    salary: '',
+                  ),
                 ),
                 (route) => false);
           },

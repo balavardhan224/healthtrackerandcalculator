@@ -12,6 +12,7 @@ import 'package:healthtrackerandcalculator/Doctor/Doctor_registration_1.dart';
 import 'package:healthtrackerandcalculator/Doctor/doctor%20page.dart';
 import 'package:healthtrackerandcalculator/Loginpage.dart';
 import 'package:healthtrackerandcalculator/home.dart/button.dart';
+import 'package:healthtrackerandcalculator/home.dart/login_screen.dart';
 import 'package:healthtrackerandcalculator/splashscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -88,7 +89,10 @@ class _MyAppState extends State<MyApp> {
                                 return Doctor_homepage();
                               }
                               log('Has no data');
-                              return doctor_registration();
+                              return doctor_registration(
+                                firstname: '',
+                                lastname: '',
+                              );
                             }
                           },
                         );
